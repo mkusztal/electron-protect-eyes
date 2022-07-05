@@ -12,14 +12,14 @@ const App = () => {
   const [time, setTime] = useState(null);
   const [timer, setTimer] = useState(null);
 
+  const timerInterval = setInterval(() => {
+    setTime((time) => time - 1);
+  }, 50);
+
   const startTimer = () => {
     setTime(1200);
     setStatus(TIMER_STATUS.WORK);
-    setTimer(
-      setInterval(() => {
-        setTime((time) => time - 1);
-      }, 50)
-    );
+    setTimer(timerInterval);
   };
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const App = () => {
   const stopTimer = () => {
     setTime(null);
     setStatus(TIMER_STATUS.OFF);
-    setTimer(clearInterval());
+    setTimer(clearInterval(timerInterval));
   };
 
   const playBell = () => {
