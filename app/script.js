@@ -41,7 +41,7 @@ const App = () => {
   const stopTimer = () => {
     setTime(null);
     setStatus(TIMER_STATUS.OFF);
-    setTimer(clearInterval(timer));
+    clearInterval(timer);
   };
 
   const playBell = () => {
